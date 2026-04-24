@@ -1,6 +1,6 @@
 # aura
 
-A new Flutter project.
+AI Flutter App To Diagnose Diseases.
 
 ## Getting Started
 
