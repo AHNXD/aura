@@ -1,6 +1,6 @@
+import 'package:aura/viewmodel/chat_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../viewmodels/chat_viewmodel.dart';
 import '../models/message.dart';
 
 class ChatScreen extends StatelessWidget {
