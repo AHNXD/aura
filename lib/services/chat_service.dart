@@ -6,7 +6,7 @@ class ChatService {
   static const String n8nWebhookUrl =
       'http://10.162.238.64:5678/webhook-test/chat';
 
-  Future<String> sendMessageToN8n(String message) async {
+  Future<String> sendMessageToN8n(String message, {String? sessionId}) async {
     try {
       final response = await http
           .post(
@@ -16,7 +16,7 @@ class ChatService {
             body: jsonEncode({
               'message': message,
               'timestamp': DateTime.now().toIso8601String(),
-              'sessionId': 'user_12345',
+              'sessionId': sessionId ?? 'anonymous_user',
             }),
           )
           .timeout(
