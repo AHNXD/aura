@@ -1,1 +1,37 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"aura-e7d60","appId":"1:15236677730:android:2784cf22769709e5a1113b","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"aura-e7d60","appId":"1:15236677730:ios:5ae4e61d4b47d8faa1113b","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"aura-e7d60","configurations":{"android":"1:15236677730:android:2784cf22769709e5a1113b","ios":"1:15236677730:ios:5ae4e61d4b47d8faa1113b"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "aura-e7d60",
+          "appId": "1:15236677730:android:2784cf22769709e5a1113b",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "aura-e7d60",
+          "appId": "1:15236677730:ios:5ae4e61d4b47d8faa1113b",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "aura-e7d60",
+          "configurations": {
+            "android": "1:15236677730:android:2784cf22769709e5a1113b",
+            "ios": "1:15236677730:ios:5ae4e61d4b47d8faa1113b"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
