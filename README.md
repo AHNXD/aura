@@ -51,6 +51,10 @@ flutter run
 
 Feel free to open issues or submit pull requests for enhancements, bug fixes, and UI improvements.
 
+## Continuous Integration
+
+This project uses GitHub Actions to run a Flutter CI pipeline on push and pull requests to `main`. The workflow checks out the repo, installs Flutter, resolves dependencies, runs `flutter analyze`, and executes the test suite.
+
 ## License
 
 This project is currently unpublished. Update this section with the correct license information if needed.
