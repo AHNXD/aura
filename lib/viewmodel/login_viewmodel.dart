@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import '../services/auth_service.dart';
 import 'base_viewmodel.dart';
 
 class LoginViewModel extends BaseViewModel {
+  LoginViewModel(this._authService);
+
+  final AuthService _authService;
+
   // Form key for validation
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -12,9 +17,11 @@ class LoginViewModel extends BaseViewModel {
   // Error messages
   String? _emailError;
   String? _passwordError;
+  String? _authError;
 
   String? get emailError => _emailError;
   String? get passwordError => _passwordError;
+  String? get authError => _authError;
 
   @override
   void dispose() {
@@ -61,43 +68,65 @@ class LoginViewModel extends BaseViewModel {
   }
 
   /// Submit login form
-  Future<void> login() async {
+  Future<bool> login() async {
     // Clear previous errors
     _emailError = null;
     _passwordError = null;
+    _authError = null;
 
     if (formKey.currentState?.validate() ?? false) {
       setLoading(true);
 
       try {
-        // Simulate API call
-        await Future.delayed(const Duration(seconds: 2));
-
-        // Get form data
-        final email = emailController.text.trim();
-        final password = passwordController.text;
-
-        // Here you would typically make an API call for authentication
-        print('Login - Email: $email, Password length: ${password.length}');
-
-        // Success - navigate to home
-        // This would be handled by the view
-
-        setLoading(false);
-      } catch (e) {
-        _emailError = 'Login failed. Please try again.';
-        setLoading(false);
+        await _authService.signIn(
+          email: emailController.text.trim(),
+          password: passwordController.text,
+        );
+        return true;
+      } on AuthFailure catch (error) {
+        _authError = error.message;
         notifyListeners();
+        return false;
+      } catch (_) {
+        _authError = 'Login failed. Please try again.';
+        notifyListeners();
+        return false;
+      } finally {
+        setLoading(false);
       }
     } else {
       notifyListeners();
+      return false;
     }
   }
 
   /// Handle forgot password
-  void onForgotPasswordTapped() {
-    // This would typically navigate to a password reset screen
-    print('Forgot password tapped');
+  Future<String?> onForgotPasswordTapped() async {
+    _authError = null;
+
+    final emailError = validateEmail(emailController.text.trim());
+    if (emailError != null) {
+      notifyListeners();
+      return emailError;
+    }
+
+    setLoading(true);
+
+    try {
+      final email = emailController.text.trim();
+      await _authService.sendPasswordResetEmail(email: email);
+      return 'Password reset email sent to $email.';
+    } on AuthFailure catch (error) {
+      _authError = error.message;
+      notifyListeners();
+      return null;
+    } catch (_) {
+      _authError = 'Could not send the reset email right now.';
+      notifyListeners();
+      return null;
+    } finally {
+      setLoading(false);
+    }
   }
 
   /// Clear form
@@ -106,6 +135,7 @@ class LoginViewModel extends BaseViewModel {
     passwordController.clear();
     _emailError = null;
     _passwordError = null;
+    _authError = null;
     notifyListeners();
   }
 }

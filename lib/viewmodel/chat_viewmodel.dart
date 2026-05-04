@@ -4,7 +4,7 @@ import '../services/chat_service.dart';
 
 class ChatViewModel extends ChangeNotifier {
   final ChatService _chatService = ChatService();
-  
+
   final List<Message> _messages = [];
   bool _isLoading = false;
 
@@ -17,7 +17,8 @@ class ChatViewModel extends ChangeNotifier {
     if (_messages.isEmpty) {
       addMessage(
         Message(
-          text: 'Hello! I\'m your medical assistant. How can I help you today?\nNote: I am a medical assistant, but this does not replace consulting a doctor.',
+          text:
+              'Hello! I\'m your medical assistant. How can I help you today?\nNote: I am a medical assistant, but this does not replace consulting a doctor.',
           isUser: false,
           timestamp: DateTime.now(),
         ),
@@ -86,7 +87,8 @@ class ChatViewModel extends ChangeNotifier {
 
       // Add error message
       final errorMessage = Message(
-        text: 'Sorry, I encountered an error. Please try again. Error: ${e.toString()}',
+        text:
+            'Sorry, I encountered an error. Please try again. Error: ${e.toString()}',
         isUser: false,
         timestamp: DateTime.now(),
       );
@@ -102,10 +104,5 @@ class ChatViewModel extends ChangeNotifier {
     _messages.clear();
     _isLoading = false;
     notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }

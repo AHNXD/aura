@@ -27,5 +27,6 @@ class Message {
   }
 
   @override
-  String toString() => 'Message(text: $text, isUser: $isUser, timestamp: $timestamp, isLoading: $isLoading)';
+  String toString() =>
+      'Message(text: $text, isUser: $isUser, timestamp: $timestamp, isLoading: $isLoading)';
 }
