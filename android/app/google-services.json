@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "15236677730",
+    "project_id": "aura-e7d60",
+    "storage_bucket": "aura-e7d60.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15236677730:android:2784cf22769709e5a1113b",
+        "android_client_info": {
+          "package_name": "com.ahnry.aura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW7F0zW5QZbV2x3SmzZfhBup15iS2l0Vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
