@@ -185,7 +185,7 @@ class _HeroBanner extends StatelessWidget {
               borderRadius: BorderRadius.circular(24),
               border: Border.all(color: Colors.white.withValues(alpha: 0.14)),
             ),
-            child: Icon(icon, color: Colors.white, size: 34),
+            child: Image.asset('assets/icons/logo.png'),
           ),
         ],
       ),

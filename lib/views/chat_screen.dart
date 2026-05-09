@@ -351,11 +351,7 @@ class _ChatHeader extends StatelessWidget {
                   color: Colors.white.withValues(alpha: 0.14),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Icon(
-                  Icons.monitor_heart_rounded,
-                  color: Colors.white,
-                  size: 28,
-                ),
+                child: Image.asset('assets/icons/logo.png'),
               ),
               const SizedBox(width: 14),
               Expanded(
