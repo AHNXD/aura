@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
       child: Consumer<LoginViewModel>(
         builder: (context, viewModel, _) {
           return AuthScreenShell(
-            eyebrow: 'Aura Care',
+            eyebrow: 'Aura Care ',
             title: 'Feel supported from the first screen.',
             subtitle:
                 'Secure access, calmer visuals, and a clearer path back into your health assistant.',
