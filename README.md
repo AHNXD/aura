@@ -11,6 +11,15 @@ Aura enables authenticated users to:
 - Send symptoms or health questions to an AI workflow
 - Receive AI-driven responses through `n8n`
 
+## Cenario
+
+This section describes a sample usage scenario for Aura:
+- A patient opens the app and logs in securely.
+- They describe symptoms or ask a health-related question.
+- The message is sent to the AI workflow through `n8n`.
+- The app saves the conversation to Firestore so the user can review it later.
+- The patient receives an AI-guided response tailored to their inquiry.
+
 ## Features
 
 - Firebase Authentication for login, signup, and session management
